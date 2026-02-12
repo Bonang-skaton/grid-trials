@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonang's new project</title>
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+<!-- footer cdn -->
+   <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css' rel="stylesheet">
+
+<!-- feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+<!-- local style -->
+ <link rel="stylesheet"href="css/style.css">
+
+<!-- alpine.js -->
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- app js -->
+ <script src="alpine/app.js" async></script>
+
+</head>
+<body>
+
+  <!-- Navbar Start -->
+   <nav class="navbar" x-data>
+    <a href="#" class="navbar-logo">2AZ<span>Frozen Food</span></a>
+
+    <div class="navbar-nav">
+<a href="#home">Beranda</a>
+<a href="#about">Tentang Kami</a>
+<a href="#menu">Menu Offline Hari Ini</a>
+<a href="#products">Produk Online Hari Ini</a>
+<a href="#payment">Pembayaran</a>
+<a href="#contact">Kontak</a>
+
+    </div>
+
+    <div class="navbar-extra">
+      <a href="#" id="shopping-cart-button">
+        <i data-feather="shopping-cart">shopping-cart</i>
+        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+      </a>
+       <a href="#" id="hamburger-menu"><i data-feather="menu"> Menu</i></a>
+    </div>
+
+<!-- Shopping Cart Start untuk didalam side bar -->
+<div class="shopping-cart">
+  <template x-for="(item, index) in $store.cart.items" x-key="index">
+<div class="cart-item">
+    <img :src="`img/products/${item.img}`" :alt="item.name">
+    <div class="item-detail">
+      <h3 x-text="item.name"></h3>
+      <div class="item-price">
+        <span x-text="rupiah(item.price)"></span>&times;
+        <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+        <span x-text="item.quantity"></span>
+        <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+        <span x-text="rupiah(item.total)"></span>
+      </div>
+    </div>
+   
+  </div>
+  </template>
+  
+  <h4 x-show="!$store.cart.items.length">Anda Belum Memiliki Pesanan</h4>
+   <h4 x-show="$store.cart.items.length">Total: <span x-text="rupiah($store.cart.total)"></span></h4>
+
+   <div class="form-container" x-show="$store.cart.items.length">
+    <form action="" id="checkoutForm">
+      <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+      <input type="hidden" name="total" x-model="$store.cart.total">
+      <h5>Customer Detail</h5>
+
+      <label for="name">
+     <span>Nama</span>
+     <input type="text" name="name" id="name">
+      </label>
+
+      <label for="phone">
+     <span>Phone</span>
+     <input type="number" name="phone" id="phone" autocomplete="off">
+      </label>
+
+      <!-- <label for="email">
+     <span>Email</span>
+     <input type="email" name="email" id="email">
+      </label>   -->
+
+      <button  class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout Sekarang</button> 
+
+
+
+
+    </form>
+   </div>
+
+
+</div>
+    <!-- Shopping Cart End  -->
+</nav>
+    <!-- Navbar End -->
+
+<!-- Hero Section start -->
+<section class="hero" id="home">
+<main class="content">
+<h1 class="my-profession">Selamat <span id="element"></span></h1>
+<p> Kami menyediakan berbagai kebutuhan makanan frozen. Higienis, Lezat, Bergizi dengan harga bersaing</p>
+<a href="#products" class="cta">Beli Sekarang</a>
+</main>
+</section>
+<!-- Hero Section End   -->
+
+  <!-- About Section start -->
+   <section class="about" id="about">
+<h2><span>Tentang </span> Kami</h2>
+
+<div class="row">
+  <div class="about-img">
+    <img src="img/dapur.png" alt="Tentang Kami">
+  </div>
+  <div class="content">
+    <h3>Mengapa Memilih Kami?</h3>
+    <p>Kami menyediakan berbagai kebutuhan makanan frozen dengan kualitas terbaik. Produk kami higienis, lezat, dan bergizi.</p>
+    <p>Harga bersaing dan layanan pelanggan yang ramah membuat kami menjadi pilihan utama untuk keluarga Anda.</p>
+</div>
+   </section>
+   <!-- About Section End -->
+
+<!-- Menu Section Start -->
+ <section class="menu" id="menu">
+<h2><span> Menu Offline</span> Hari Ini</h2>
+<p>Menu Offline Hari Ini adalah menu yang hanya tersedia untuk pemesanan ditempat serta melayani takeaway.</p>
+
+<div class="row">
+  <div class="menu-card">
+      <img src="img/menu/1.png" alt="Mie Gaul" class="menu-card-img">
+      <h3 class="menu-card-title">- Mie Gaul -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;"> IDR 5K</p>
+   </div>
+
+    <div class="menu-card">
+      <img src="img/menu/2.png" alt="Sosis Bakar" class="menu-card-img">
+      <h3 class="menu-card-title">- Sosis Bakar Isi 4 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 15K</p>
+   </div>
+
+    <div class="menu-card">
+      <img src="img/menu/3.png" alt="Es Teh Manis" class="menu-card-img">
+      <h3 class="menu-card-title">- Es Teh Manis -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 3K</p>
+   </div>
+
+    <div class="menu-card">
+      <img src="img/menu/4.png" alt="Bakso Komplit" class="menu-card-img">
+      <h3 class="menu-card-title">- Bakso Komplit Isi 5 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 10K</p>
+   </div>
+
+    <div class="menu-card">
+      <img src="img/menu/5.png" alt="Bakpau Mini" class="menu-card-img">
+      <h3 class="menu-card-title">- Bakpau Mini isi 5 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 5K</p>
+   </div>
+
+       <div class="menu-card">
+      <img src="img/menu/6.png" alt="Dimsum" class="menu-card-img">
+      <h3 class="menu-card-title">- Dimsum Isi 3 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 10K</p>
+   </div>
+
+       <div class="menu-card">
+      <img src="img/menu/7.png" alt="Lumpia Semarang" class="menu-card-img">
+      <h3 class="menu-card-title">- Lumpia Semarang Isi 1 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 4K</p>
+   </div>
+
+       <div class="menu-card">
+      <img src="img/menu/8.png" alt="Risoles" class="menu-card-img">
+      <h3 class="menu-card-title">- Risoles Isi 1 pcs -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 4K</p>
+   </div>
+
+       <div class="menu-card">
+      <img src="img/menu/9.png" alt="Es Nutrisari" class="menu-card-img">
+      <h3 class="menu-card-title">- Es Nutrisari -</h3>
+      <p class="menu-card-price" style="position: relative; left: 15px;">IDR 3K</p>
+   </div>
+
+      
+
+
+
+</div>
+ </section>
+<!-- Menu Section End   -->
+
+
+<!-- Product Section Start -->
+<section class="products" id="products" x-data="products">
+<h2><span>Produk Online</span> Hari Ini</h2>
+<p>Produk online kami tersedia untuk pemesanan melalui aplikasi atau website kami.</p>
+
+<div class="row">
+<template x-for="item in items" x-key="index">
+  <div class=" product-card">
+<div class="product-icons">
+<a href="#" @click.prevent="$store.cart.add(item)">
+  <svg
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#shopping-cart" />
+</svg>
+</a>
+</div>
+<div class="product-image">
+<img :src="`img/products/${item.img}`" :alt="item.name">
+</div>
+<div class="product-content">
+<h3 x-text="item.name"></h3>
+<div class="product-stars">
+ <svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+
+<svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+
+<svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+
+<svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+
+<svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+
+
+
+</div>
+<div class="product-price"><span x-text="rupiah(item.price)"></span></div>
+</div>
+    </div>
+</template>
+</div>
+</section>
+<!-- Product Section End  -->
+
+<!-- Pembayaran Section Start -->
+ <section class="payment" id="payment">
+<h2><span>Payment </span> Method</h2>
+
+<div class="row">
+  <div class="payment-img">
+    <img src="img/payment.png" alt="payment">
+  </div>
+  <div class="content">
+    <h3>Scan Me</h3>
+    <p></p>
+    <p>Scan QRIS untuk pembayaran yang lebih mudah dan aman.</p>
+</div>
+   </section>
+
+
+
+<!-- Pembayaran Section End -->
+
+<!-- Contact Section Start -->
+ <section class="contact" id="contact">
+<h2><span> Kontak</span> Kami</h2>
+
+
+  <div class="row">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15859.900983213709!2d106.75612057886202!3d-6.397191446263508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e926c4ed1c39%3A0x65d7f8b783e8c5ba!2sJl.%20Pakis%20No.67%2C%20Rangkapan%20Jaya%20Baru%2C%20Kec.%20Pancoran%20Mas%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016434!5e0!3m2!1sen!2sid!4v1770437244231!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+     </div>
+
+<a href="https://wa.link/gmwot5" class="cta"><i data-feather="phone">phone</i></a>
+
+      <!-- <a href="https://www.qris.id/ID1025436705558" class="cta">PAYMENT</a> -->
+
+     
+
+</section>
+<!-- Contact Section End   -->
+
+<!-- Footer Section Start -->
+ <footer class="socials">
+<a href=""><i data-feather="instagram"> instagram</i></a>
+
+<a href=""><i data-feather="facebook">facebook</i></a>
+
+<a href=""><i data-feather="twitter"> x</i></a>
+
+<div class="credits">
+ <span>Created By <a href="#">BONANG</a> | <span class="far fa-copyright"></span>
+              2026 All rights reserved.</span>
+</div>
+
+ </footer>
+<!-- Footer Section End   -->
+
+<!-- feather icons -->
+      <script>
+      feather.replace();
+    </script>
+<!-- js local -->
+     <script src="js/script.js"></script>
+
+ <!-- script animasi -->
+      <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+      
+ <script>
+    var typed = new Typed('#element', {
+      strings: [' datang di 2AZ Frozen Food',' Berbelanja'],
+      loop: true,
+      typeSpeed: 100,
+      showCursor: false,
+      backSpeed: 60,
+      backDelay: 2000,
+      
+    });
+  </script>
+
+</body>
+</html>
