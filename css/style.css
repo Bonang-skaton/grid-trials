@@ -108,7 +108,7 @@ left: -2px;
   top: 100%;
   right: -100%;
   height: 100vh;
-  width: 35rem;
+  width: 53rem;
   padding: 0 1.5rem;
   color: var(--bg);
   background-color: #fff;
@@ -135,7 +135,7 @@ left: -2px;
 }
 
 .shopping-cart h3 {
-  font-size: 1.4rem;
+  font-size: 2.8rem;
   color: var(--bg);
 }
 
@@ -157,7 +157,7 @@ font-size: 1.2rem;
 }
 
 .shopping-cart h4 {
-  font-size: 1.8rem;
+  font-size: 3rem;
   margin-top: 1rem;
   text-align: center;
 }
