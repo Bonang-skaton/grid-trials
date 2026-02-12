@@ -52,7 +52,7 @@ body {
 .navbar .navbar-nav a{
   color:  #fff;
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 4rem;
   margin: 0 1rem;
 }
 
@@ -569,7 +569,7 @@ html {
   top: 100%;
   right: -100%;
   background-color: #fff;
-  width: 30rem;
+  width: 60rem;
   height: 100vh;
   transition: 0.3s;
 }
@@ -650,6 +650,6 @@ html {
   font-size: 30%;
 }
 #products.product  {
-  padding: 0 7% 1.4rem;
+  padding: 0 5% 1.4rem;
 }
 } 
