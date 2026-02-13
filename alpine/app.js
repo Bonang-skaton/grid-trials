@@ -102,12 +102,12 @@ const formData = new FormData(form);
 const data = new URLSearchParams(formData);
 const objData = Object.fromEntries(data);
 const message = formatMessage(objData);
-window.open('https://wa.me/6289634888246?text=' + encodeURIComponent(message));
+window.open('https://wa.me/6285692928708?text=' + encodeURIComponent(message));
 });
 
 // format pesan whatsapp
 const formatMessage = (obj) => {
-   return`Data Customer
+   return`Pelanggan Online
    Nama: ${obj.nama}
    No Hp: ${obj.phone}
    Data Pesanan
