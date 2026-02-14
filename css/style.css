@@ -579,7 +579,7 @@ margin-bottom: 2em;
 }
 
 #contact.contact h2 {
-  margin-top: 10em;
+   margin-top: 10em; 
   position: relative;
   margin-bottom: -1rem; 
    padding: 0rem 7% 1.4rem;
@@ -594,7 +594,7 @@ margin-bottom: 2em;
 footer {
   /* background-color: grey; */
   text-align: center;
-  padding: 5rem rem;
+  padding: 5rem 8rem;
   margin-top: 0.3rem;
 }
 
