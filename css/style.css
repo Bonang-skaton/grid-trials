@@ -645,15 +645,15 @@ footer .socials a:hover {
 /* media queries */
 /* laptop */
 @media (max-width: 1366px) {
-html {
+ html {
   font-size: 75%;
-}
+} 
 } 
 /* Tablet */
 @media (max-width: 768px) {
-html {
+ html {
   font-size: 62.5%;
-}
+} 
 
 #hamburger-menu {
   display: inline-block;
