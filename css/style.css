@@ -117,7 +117,21 @@ left: -2px;
 
 .shopping-cart.active {
   right: 0;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  
+  
 }
+
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
+
 
 .shopping-cart .cart-item {
   margin: 2rem 0;
@@ -127,6 +141,7 @@ left: -2px;
   padding-bottom: 1rem;
   border-bottom: 1px solid #666;
   position: relative;
+  
 }
 
 .shopping-cart img {
@@ -154,6 +169,7 @@ color: rgb(10, 0, 0);
 border-radius: 30%;
 font-weight: bold;
 font-size: 2.4rem;
+
 }
 
 .shopping-cart h4 {
