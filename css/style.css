@@ -97,7 +97,7 @@ display: inline-block;
 padding: 1px 5px;
 background-color: red;
 border-radius: 7px;
-font-size: 1rem;
+font-size: rem;
 position: absolute;
 left: -2px;
 }
@@ -113,21 +113,26 @@ left: -2px;
   color: var(--bg);
   background-color: #fff;
   transition: 0.3s;
+ 
 }
 
 .shopping-cart.active {
   right: 0;
-  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none; 
+  
+}
+
+.shopping-cart.active {
   overflow-y: scroll;
-  
-  
+  height: 90vh;
 }
 
 
-
-::-webkit-scrollbar {
-  width: 0;
-}
 
 
 
