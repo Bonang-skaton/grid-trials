@@ -125,12 +125,11 @@ left: -2px;
   border: none;
   text-decoration: none; 
   
+   overflow-y: scroll;
+  height: 88vh;
 }
 
-.shopping-cart.active {
-  overflow-y: scroll;
-  height: 90vh;
-}
+
 
 
 
