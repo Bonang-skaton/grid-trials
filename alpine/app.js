@@ -108,8 +108,9 @@ window.open('https://wa.me/628568084552?text=' + encodeURIComponent(message));
 // format pesan whatsapp
 const formatMessage = (obj) => {
    return`Pelanggan Online
-   Nama: ${obj.nama}
+   Nama: ${obj.name}
    No Hp: ${obj.phone}
+   Alamat: ${obj.alamat}
    Pesanan Online
  ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
  TOTAL: ${rupiah(obj.total)}
