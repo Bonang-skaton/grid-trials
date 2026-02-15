@@ -1,7 +1,7 @@
    document.addEventListener('alpine:init', () => {
         Alpine.data('products', () => ({
            items: [
-            { id: 1, name: 'Mie Gaul', img: '1.png', price: 5000 },
+            { id: 1, name: 'Bergo Rubi bahan kaos', img: '1.png', price: 5000 },
             { id: 2, name: 'Sosis Bakar isi 2 pcs', img: '2.png', price: 70000 },
             { id: 3, name: 'Es Teh Manis', img: '3.png', price: 3000 },
             { id: 4, name: 'Bakso Komplit isi 5 pcs', img: '4.png', price: 10000 },
@@ -102,7 +102,7 @@ const formData = new FormData(form);
 const data = new URLSearchParams(formData);
 const objData = Object.fromEntries(data);
 const message = formatMessage(objData);
-window.open('https://wa.me/6285692928708?text=' + encodeURIComponent(message));
+window.open('https://wa.me/628568084552?text=' + encodeURIComponent(message));
 });
 
 // format pesan whatsapp
