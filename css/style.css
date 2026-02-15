@@ -126,7 +126,7 @@ left: -2px;
   text-decoration: none; 
   
    overflow-y: scroll;
-  height: 88vh;
+  height: 86vh;
 }
 
 
@@ -671,7 +671,7 @@ footer .socials a:hover {
 /* laptop */
 @media (max-width: 1366px) {
  html {
-  font-size: 75%;
+   font-size: 75%; 
 } 
 } 
 /* Tablet */
