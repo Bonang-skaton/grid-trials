@@ -217,17 +217,28 @@ span.phone {
   font-size: 3rem;
 }
 
+span.address{
+   font-size: 3rem;
+}
+
 input#name.text {
   font-size: 3rem;
 }
 
 input#phone.phone {
   font-size: 3rem;
+
+}
+
+input#address.text {
+  font-size: 3rem;
+  
 }
 
 .form-container span {
   text-align: right;
 }
+
 
 .form-container input {
   background-color: #ddd;
